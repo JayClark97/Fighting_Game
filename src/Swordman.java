@@ -1,6 +1,6 @@
 public class Swordman extends Character{
     private String weapon;
-    private int health, attackDmg;
+    private int health, attackDmg; //add mana later
 
     public Swordman(String name) {
         super(name);
@@ -33,8 +33,9 @@ public class Swordman extends Character{
         this.attackDmg = attackDmg;
     }
 
+    //Method for default attack that doesn't require mana
     public int basicAttack(){
-        int chance = (int) ((Math.random() * 10) + 1);
+        int chance = (int) ((Math.random() * 10) + 1); //later chance should change depending on weapon
         System.out.println(chance);
         if(chance > 3) {
             System.out.println("Deal " + getAttackDmg() + " damage!");
@@ -45,6 +46,15 @@ public class Swordman extends Character{
             return 0;
         }
     }
+
+    /*Methods for special attacks moves*/
+
+    //Add a cleave method
+
+    //Add a quick slash method
+
+    //Add a ultimate attack method
+
 
     public void receiveDmg(int damage){
             health -= damage;

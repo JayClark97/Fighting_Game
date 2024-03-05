@@ -1,6 +1,6 @@
 public class Fighter extends Character{
     private String weapon;
-    private int health, attackDmg;
+    private int health, attackDmg; //add mana later
 
     public Fighter(String name) {
         super(name);
@@ -33,8 +33,9 @@ public class Fighter extends Character{
         this.attackDmg = attackDmg;
     }
 
+    //Method for default attack that doesn't require mana
     public int basicAttack(){
-        int chance = (int) ((Math.random() * 10) + 1);
+        int chance = (int) ((Math.random() * 10) + 1); //later chance should change depending on weapon
         System.out.println(chance);
         if(chance > 5) {
             System.out.println("Deal " + attackDmg + " damage!");
@@ -45,6 +46,14 @@ public class Fighter extends Character{
             return 0;
         }
     }
+
+    /*Methods for special attacks moves*/
+
+    //Add a haymaker method
+
+    //Add a round kick method
+
+    //Add an ultimate attack method
 
     public void receiveDmg(int damage){
             health -= damage;
