@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main (String [] args){
 
@@ -7,9 +9,39 @@ public class Main {
 
         int kateAttack;
         int janksAttack;
-        int kateCleave; //new attack
+        /*Special attacks */
+        int kateCleave;
         int kateQuickSlash;
         int kateUltimateMove;
+
+        String move;
+        int kateDamage;
+
+        Scanner scan = new Scanner(System.in);
+        /*Update later: add a while loop to check if user inputted the correct value.
+         *If incorrect then keep asking the user to submit a correct value.
+         */
+        System.out.println("""
+                Select move that Swordman Kate should use?\s
+                '0' for basic attack
+                '1' for quick attack
+                '2' for cleave
+                '3' for ultimate attack""");
+        move = scan.nextLine();
+        kateDamage = kate.selectMove(move);
+
+        if(kateDamage == -1){
+            System.out.println("You didn't select the correct move. Try again.");
+            System.out.println("""
+                    Select move that Swordman Kate should use?\s
+                    '0' for basic attack
+                    '1' for quick attack
+                    '2' for cleave
+                    '3' for ultimate attack""");
+            move = scan.nextLine();
+            kateDamage = kate.selectMove(move);
+        }
+        janks.receiveDmg(kateDamage);
 
 
         /*Testing Cleave method for Swordman class. The method should remove mana from each use of the move.
@@ -35,12 +67,12 @@ public class Main {
         /*Testing crossSlash method for Swordman class. This method should remove mana from each use of the move.
          *If mana is less than the required amount for move, then use the basicAttack method instead to deal damage.
          */
-        System.out.println(janks.getHealth());
-        while(janks.getHealth() >= 0){
-            kateUltimateMove = kate.crossSlash();
-            janks.receiveDmg(kateUltimateMove);
-
-        }
+//        System.out.println(janks.getHealth());
+//        while(janks.getHealth() >= 0){
+//            kateUltimateMove = kate.crossSlash();
+//            janks.receiveDmg(kateUltimateMove);
+//
+//        }
 
 
 

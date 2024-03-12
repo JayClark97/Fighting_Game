@@ -114,6 +114,16 @@ public class Swordman extends Character{
 
     }
 
+    public int selectMove(String move){
+        return switch (move) {
+            case "0", "basic attack" -> basicAttack();
+            case "1", "quick slash" -> quickSlash();
+            case "2", "cleave" -> Cleave();
+            case "3", "cross slash" -> crossSlash();
+            default -> -1;
+        };
+    }
+
 
     @Override
     public String toString() {
