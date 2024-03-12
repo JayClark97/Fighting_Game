@@ -1,12 +1,13 @@
 public class Swordman extends Character{
     private String weapon;
-    private int health, attackDmg; //add mana later
+    private int health, attackDmg, mana; //add mana later
 
     public Swordman(String name) {
         super(name);
         weapon = "blunt sword";
         health = 500;
         attackDmg = 40;
+        mana = 30;
     }
 
     public String getWeapon() {
@@ -33,6 +34,14 @@ public class Swordman extends Character{
         this.attackDmg = attackDmg;
     }
 
+    public int getMana() {
+        return mana;
+    }
+
+    public void setMana(int mana) {
+        this.mana = mana;
+    }
+
     //Method for default attack that doesn't require mana
     public int basicAttack(){
         int chance = (int) ((Math.random() * 10) + 1); //later chance should change depending on weapon
@@ -50,8 +59,33 @@ public class Swordman extends Character{
     /*Methods for special attacks moves*/
 
     //Add a cleave method
+    public int Cleave (){
+        mana -= 8;
+        if(mana < 8){
+            System.out.println("Current Mana " + mana);
+            System.out.println("Not enough mana");
+            return 0;
+        }
+        int damage = 70;
+        System.out.println("Used Cleave. Damage done " + damage);
+        System.out.println("Current Mana " + mana);
+        return damage;
+
+    }
 
     //Add a quick slash method
+    public int quickSlash(){
+        mana -= 5;
+        if(mana < 5){
+            System.out.println("Current Mana " + mana);
+            System.out.println("Not enough mana");
+        }
+
+        int damage = 45;
+        System.out.println("Used Quick Slash. Damage done " + damage);
+        System.out.println("Current Mana " + mana);
+        return damage;
+    }
 
     //Add a ultimate attack method
 

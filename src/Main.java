@@ -7,9 +7,19 @@ public class Main {
 
         int kateAttack;
         int janksAttack;
+        int kateCleave; //new attack
+
+        /*Testing Cleave method for Swordman class. The method should remove mana from each use of the move. */
+        System.out.println(janks.getHealth());
+        while(kate.getMana() >= 8) {
+             kateCleave = kate.Cleave();
+            janks.receiveDmg(kateCleave);
+        }
 
 
 
+
+        /* While loop code to test basicAttack and receiveDmg method between two characters.
         while(janks.getHealth() > 0 && kate.getHealth() > 0) {
 
             if(kate.getHealth() > 0) {
@@ -36,7 +46,7 @@ public class Main {
             System.out.println(janks.getName() + " wins!");
         }
 
-
+    */
 
     }
 }
