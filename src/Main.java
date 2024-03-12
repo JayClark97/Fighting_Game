@@ -8,14 +8,39 @@ public class Main {
         int kateAttack;
         int janksAttack;
         int kateCleave; //new attack
+        int kateQuickSlash;
+        int kateUltimateMove;
 
-        /*Testing Cleave method for Swordman class. The method should remove mana from each use of the move. */
+
+        /*Testing Cleave method for Swordman class. The method should remove mana from each use of the move.
+         *If mana is less than the required amount for move, then use the basicAttack method instead to deal damage.
+        */
+//        System.out.println(janks.getHealth());
+//        while(janks.getHealth() >= 0) {
+//             kateCleave = kate.Cleave();
+//            janks.receiveDmg(kateCleave);
+//        }
+
+
+        /*Testing quickSlash method for Swordman class. The method should remove mana from each use of the move.
+         *If mana is less than the required amount for move, then use the basicAttack method instead to deal damage.
+         */
+//        System.out.println(janks.getHealth());
+//        while(janks.getHealth() >= 0){
+//            kateQuickSlash = kate.quickSlash();
+//            janks.receiveDmg(kateQuickSlash);
+//        }
+
+
+        /*Testing crossSlash method for Swordman class. This method should remove mana from each use of the move.
+         *If mana is less than the required amount for move, then use the basicAttack method instead to deal damage.
+         */
         System.out.println(janks.getHealth());
-        while(kate.getMana() >= 8) {
-             kateCleave = kate.Cleave();
-            janks.receiveDmg(kateCleave);
-        }
+        while(janks.getHealth() >= 0){
+            kateUltimateMove = kate.crossSlash();
+            janks.receiveDmg(kateUltimateMove);
 
+        }
 
 
 

@@ -45,7 +45,7 @@ public class Swordman extends Character{
     //Method for default attack that doesn't require mana
     public int basicAttack(){
         int chance = (int) ((Math.random() * 10) + 1); //later chance should change depending on weapon
-        System.out.println(chance);
+        //System.out.println(chance);
         if(chance > 3) {
             System.out.println("Deal " + getAttackDmg() + " damage!");
             return getAttackDmg();
@@ -60,34 +60,49 @@ public class Swordman extends Character{
 
     //Add a cleave method
     public int Cleave (){
-        mana -= 8;
-        if(mana < 8){
+        mana -= 8; //FIX LATER. mana will be reduced everytime this method is called. Will result in negative mana.
+        int damage;
+        if(mana > 0){
+            damage = 90;
+            System.out.println("Used Cleave. Damage done " + damage);
             System.out.println("Current Mana " + mana);
-            System.out.println("Not enough mana");
-            return 0;
         }
-        int damage = 70;
-        System.out.println("Used Cleave. Damage done " + damage);
-        System.out.println("Current Mana " + mana);
+        else{
+            damage = basicAttack();
+        }
         return damage;
 
     }
 
     //Add a quick slash method
     public int quickSlash(){
-        mana -= 5;
-        if(mana < 5){
+        mana -= 5; //FIX LATER. mana will be reduced everytime this method is called. Will result in negative mana.
+        int damage;
+        if(mana > 0){
+            damage = 50;
+            System.out.println("Used Quick Slash. Damage done " + damage);
             System.out.println("Current Mana " + mana);
-            System.out.println("Not enough mana");
         }
-
-        int damage = 45;
-        System.out.println("Used Quick Slash. Damage done " + damage);
-        System.out.println("Current Mana " + mana);
+        else{
+            damage = basicAttack();
+        }
         return damage;
     }
 
     //Add a ultimate attack method
+    public int crossSlash(){
+        int damage;
+        mana -= 20; //FIX LATER. mana will be reduced everytime this method is called. Will result in negative mana.
+        if(mana > 0){
+            damage = 200;
+            System.out.println("Used Ultimate Move CROSS SLASH! Damage done " + damage);
+            System.out.println("Current Mana " + mana);
+        }
+        else {
+            damage = basicAttack();
+        }
+        return damage;
+    }
 
 
     public void receiveDmg(int damage){
@@ -98,6 +113,7 @@ public class Swordman extends Character{
             }
 
     }
+
 
     @Override
     public String toString() {
